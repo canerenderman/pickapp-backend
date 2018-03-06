@@ -3,7 +3,7 @@
     "username": "canerenderman",
     "password": "murateren3169Yolo",
     "database": "pickapp-db-dev",
-    "host": "127.0.0.1",
+    "host": "https://pickapp-test.herokuapp.com/",
     "port": 5432,
     "dialect": "postgres"
   },
@@ -11,7 +11,7 @@
     "username": "canerenderman",
     "password": "murateren3169Yolo",
     "database": "pickapp-db-dev",
-    "host": "127.0.0.1",
+    "host": "https://pickapp-test.herokuapp.com/",
     "port": 5432,
     "dialect": "postgres"
   },
@@ -19,7 +19,7 @@
     "username": "canerenderman",
     "password": "murateren3169Yolo",
     "database": "pickapp-db-dev",
-    "host": "127.0.0.1",
+    "host": "https://pickapp-test.herokuapp.com/",
     "port": 5432,
     "dialect": "postgres"
   }
