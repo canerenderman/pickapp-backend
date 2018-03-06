@@ -20,21 +20,21 @@ module.exports = {
           userId: req.params.userId,
         },
       })
-    .then(userInput => {
-      if (!userInput) {
+    .then(UserInput => {
+      if (!UserInput) {
         return res.status(404).send({
-          message: 'userInput Not Found',
+          message: 'UserInput Not Found',
         });
       }
 
-      return userInput
+      return UserInput
         .update(req.body, {fields: Objects.keys(req.body)}
-        // {
-        //   gym: req.body.gym || userInput.gym,
-        //   sportType: req.body.sportType || userInput.sportType,
-        //   availability: req.body.availability || userInput.availability,
-        //   processed: req.body.processed || userInput.processed,
-        // }
+       // .update({
+       //    gym: req.body.gym || userInput.gym,
+       //    sportType: req.body.sportType || userInput.sportType,
+       //    availability: req.body.availability || userInput.availability,
+       //    processed: req.body.processed || userInput.processed,
+       //  }
         )
         .then(updatedUserInput => res.status(200).send(updatedUserInput))
         .catch(error => res.status(400).send(error));
@@ -43,21 +43,21 @@ module.exports = {
 },
 
 destroy(req, res) {
-  return userInput
+  return UserInput
     .find({
         where: {
           id: req.params.userInputId,
           userId: req.params.userId,
         },
       })
-    .then(userInput => {
-      if (!userInput) {
+    .then(UserInput => {
+      if (!UserInput) {
         return res.status(404).send({
           message: 'UserInput Not Found',
         });
       }
 
-      return userInput
+      return UserInput
         .destroy()
         .then(() => res.status(204).send())
         .catch(error => res.status(400).send(error));
