@@ -9,7 +9,7 @@ module.exports = {
       })
       .then(user => res.status(201).send(user))
       .catch(err => {
-    console.error("Unable to connect to database", err);
+    console.error("Post request error", err);
   });
       //.catch(error => res.status(400).send(error));
   },
