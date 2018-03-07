@@ -8,8 +8,7 @@ module.exports = {
         title: req.body.title,
       })
       .then(user => res.status(201).send(user))
-      .catch(error => res.status(400).send(error)
-        console.log(error));
+      .catch(error => res.status(400).send(error));
   },
   list(req, res) {
   return User
