@@ -8,10 +8,26 @@ module.exports = (sequelize, DataTypes) => {
   // }, 
 });
   User.associate = (models) => {
-  	User.hasMany(models.UserInput, {
+    User.hasMany(models.UserInput, {
   		foreignKey: 'userId',
   		as: 'userInputs'
-  	})
+  	}),
+    User.hasMany(models.FitnessSubgym, {
+      foreignKey: 'userId',
+      as: 'fitnessSubgyms'
+    }),
+    User.hasMany(models.BasketballSubgym, {
+      foreignKey: 'userId',
+      as: 'basketballSubgyms'
+    }),
+    User.hasMany(models.PoolSubgym, {
+      foreignKey: 'userId',
+      as: 'poolSubgyms'
+    }),
+    User.hasMany(models.TrackSubgym, {
+      foreignKey: 'userId',
+      as: 'trackSubgyms'
+    })
   };
   return User;
 };

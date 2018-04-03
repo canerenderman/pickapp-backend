@@ -20,21 +20,21 @@ module.exports = {
           userId: req.params.userId,
         },
       })
-    .then(UserInput => {
-      if (!UserInput) {
+    .then(userInput => {
+      if (!userInput) {
         return res.status(404).send({
           message: 'UserInput Not Found',
         });
       }
 
-      return UserInput
-        .update(req.body, {fields: Objects.keys(req.body)}
-       // .update({
-       //    gym: req.body.gym || userInput.gym,
-       //    sportType: req.body.sportType || userInput.sportType,
-       //    availability: req.body.availability || userInput.availability,
-       //    processed: req.body.processed || userInput.processed,
-       //  }
+      return userInput
+        // .update(req.body, {fields: Objects.keys(req.body)}
+       .update({
+          gym: req.body.gym || userInput.gym,
+          sportType: req.body.sportType || userInput.sportType,
+          availability: req.body.availability || userInput.availability,
+          processed: req.body.processed || userInput.processed,
+        }
         )
         .then(updatedUserInput => res.status(200).send(updatedUserInput))
         .catch(error => res.status(400).send(error));

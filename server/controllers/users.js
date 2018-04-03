@@ -1,5 +1,7 @@
 const User = require('../models').User;
 const UserInput = require('../models').UserInput;
+const FitnessSubgym = require('../models').FitnessSubgym;
+const BasketballSubgym = require('../models').BasketballSubgym;
 
 module.exports = {
   create(req, res) {
@@ -11,7 +13,6 @@ module.exports = {
       .catch(err => {
     console.error("Post request error", err);
   });
-      //.catch(error => res.status(400).send(error));
   },
   list(req, res) {
   return User
@@ -19,7 +20,13 @@ module.exports = {
     	include: [{
     		model: UserInput,
     		as: 'userInputs'
-    	}],
+    	}, {
+        model: FitnessSubgym,
+        as: 'fitnessSubgyms',
+      },{
+        model: BasketballSubgym,
+        as: 'basketballSubgyms',
+      }]
     })
     .then(users => res.status(200).send(users))
     .catch(error => res.status(400).send(error));
@@ -30,7 +37,13 @@ retrieve(req, res) {
       include: [{
         model: UserInput,
         as: 'userInputs',
-      }],
+      },{
+        model: FitnessSubgym,
+        as: 'fitnessSubgyms',
+      },{
+        model: BasketballSubgym,
+        as: 'basketballSubgyms',
+      }]
     })
     .then(user => {
       if (!user) {
