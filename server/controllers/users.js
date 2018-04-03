@@ -2,6 +2,8 @@ const User = require('../models').User;
 const UserInput = require('../models').UserInput;
 const FitnessSubgym = require('../models').FitnessSubgym;
 const BasketballSubgym = require('../models').BasketballSubgym;
+const PoolSubgym = require('../models').PoolSubgym;
+const TrackSubgym = require('../models').TrackSubgym;
 
 module.exports = {
   create(req, res) {
@@ -26,6 +28,12 @@ module.exports = {
       },{
         model: BasketballSubgym,
         as: 'basketballSubgyms',
+      },{
+        model: PoolSubgym,
+        as: 'poolSubgyms',
+      },{
+        model: TrackSubgym,
+        as: 'trackSubgyms',
       }]
     })
     .then(users => res.status(200).send(users))
@@ -43,6 +51,12 @@ retrieve(req, res) {
       },{
         model: BasketballSubgym,
         as: 'basketballSubgyms',
+      },{
+        model: PoolSubgym,
+        as: 'poolSubgyms',
+      },{
+        model: TrackSubgym,
+        as: 'trackSubgyms',
       }]
     })
     .then(user => {

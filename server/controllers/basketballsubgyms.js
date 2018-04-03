@@ -48,7 +48,8 @@ retrieve(req,res) {
       createdAt: {
         [Op.gte]: moment().subtract(1.5, 'hours').toDate()
       }
-    }
+    },
+    limit: 0
   })
   .then(basketballSubgym => {
       if (!basketballSubgym) {
