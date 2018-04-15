@@ -37,7 +37,6 @@ module.exports = (app) => {
       function authorize(credentials, callback) {
         const {client_secret, client_id, redirect_uris} = credentials.installed;
         const oAuth2Client = new OAuth2Client(client_id, client_secret, redirect_uris[0]);
-        console.log('2');
         token = {"access_token":"ya29.GluWBbm1vW71sU9c5sZZykHjP6BEU5f1Pi8QgmD6wF6-LqEp3r1CNm1EGDFuZXAlCWgHFU1QxMJXpkjS-nlVNt4Q3CnDSSwX5t-mK1u5GxRRHZvME_2j5JMOh89m","token_type":"Bearer","refresh_token":"1/VwUGBtwuQuuJ8Ciqt8foZj2grSQd4VutrTX0ZbeTyac","expiry_date":1523116433466}
           oAuth2Client.setCredentials(token);
           callback(oAuth2Client);
@@ -51,18 +50,20 @@ module.exports = (app) => {
         calendar.events.list({
           calendarId: 'brown.edu_rq0vojk0egcume8mkpbikruhjg@group.calendar.google.com',
           timeMin: (new Date()).toISOString(),
-          maxResults: 10,
+          maxResults: 30,
           singleEvents: true,
           orderBy: 'startTime',
+          timeZone: 'America/New_York'
         }, (err, {data}) => {
           if (err) return console.log('The API returned an error: ' + err);
           const events = data.items;
           if (events.length) {
-            console.log('Upcoming 10 events:');
+            console.log('Upcoming 30 events:');
             events_send = [];
             events_send = events.map((event, i) => {
               const start = event.start.dateTime || event.start.date;
-              return(`${start} - ${event.summary}`)
+              const end = event.end.dateTime || even.end.date;
+              return(`${start} - ${end} - ${event.summary}`)
             });
             res.send(events_send);
           } else {
@@ -85,7 +86,6 @@ module.exports = (app) => {
       function authorize(credentials, callback) {
         const {client_secret, client_id, redirect_uris} = credentials.installed;
         const oAuth2Client = new OAuth2Client(client_id, client_secret, redirect_uris[0]);
-        console.log('2');
         token = {"access_token":"ya29.GluWBbm1vW71sU9c5sZZykHjP6BEU5f1Pi8QgmD6wF6-LqEp3r1CNm1EGDFuZXAlCWgHFU1QxMJXpkjS-nlVNt4Q3CnDSSwX5t-mK1u5GxRRHZvME_2j5JMOh89m","token_type":"Bearer","refresh_token":"1/VwUGBtwuQuuJ8Ciqt8foZj2grSQd4VutrTX0ZbeTyac","expiry_date":1523116433466}
           oAuth2Client.setCredentials(token);
           callback(oAuth2Client);
@@ -99,18 +99,20 @@ module.exports = (app) => {
         calendar.events.list({
           calendarId: 'brown.edu_jk2qbab4b5msqg5o06bsv97arg@group.calendar.google.com',
           timeMin: (new Date()).toISOString(),
-          maxResults: 10,
+          maxResults: 30,
           singleEvents: true,
           orderBy: 'startTime',
+          timeZone: 'America/New_York'
         }, (err, {data}) => {
           if (err) return console.log('The API returned an error: ' + err);
           const events = data.items;
           if (events.length) {
-            console.log('Upcoming 10 events:');
+            console.log('Upcoming 30 events:');
             events_send = [];
             events_send = events.map((event, i) => {
               const start = event.start.dateTime || event.start.date;
-              return(`${start} - ${event.summary}`)
+              const end = event.end.dateTime || even.end.date;
+              return(`${start} - ${end} - ${event.summary}`)
             });
             res.send(events_send);
           } else {
@@ -133,7 +135,6 @@ module.exports = (app) => {
       function authorize(credentials, callback) {
         const {client_secret, client_id, redirect_uris} = credentials.installed;
         const oAuth2Client = new OAuth2Client(client_id, client_secret, redirect_uris[0]);
-        console.log('2');
         token = {"access_token":"ya29.GluWBbm1vW71sU9c5sZZykHjP6BEU5f1Pi8QgmD6wF6-LqEp3r1CNm1EGDFuZXAlCWgHFU1QxMJXpkjS-nlVNt4Q3CnDSSwX5t-mK1u5GxRRHZvME_2j5JMOh89m","token_type":"Bearer","refresh_token":"1/VwUGBtwuQuuJ8Ciqt8foZj2grSQd4VutrTX0ZbeTyac","expiry_date":1523116433466}
           oAuth2Client.setCredentials(token);
           callback(oAuth2Client);
@@ -147,18 +148,20 @@ module.exports = (app) => {
         calendar.events.list({
           calendarId: 'brown.edu_7vo0v32566duu5fr3sllg2nt1k@group.calendar.google.com',
           timeMin: (new Date()).toISOString(),
-          maxResults: 10,
+          maxResults: 30,
           singleEvents: true,
           orderBy: 'startTime',
+          timeZone: 'America/New_York'
         }, (err, {data}) => {
           if (err) return console.log('The API returned an error: ' + err);
           const events = data.items;
           if (events.length) {
-            console.log('Upcoming 10 events:');
+            console.log('Upcoming 30 events:');
             events_send = [];
             events_send = events.map((event, i) => {
               const start = event.start.dateTime || event.start.date;
-              return(`${start} - ${event.summary}`)
+              const end = event.end.dateTime || even.end.date;
+              return(`${start} - ${end} - ${event.summary}`)
             });
             res.send(events_send);
           } else {
@@ -181,7 +184,6 @@ module.exports = (app) => {
       function authorize(credentials, callback) {
         const {client_secret, client_id, redirect_uris} = credentials.installed;
         const oAuth2Client = new OAuth2Client(client_id, client_secret, redirect_uris[0]);
-        console.log('2');
         token = {"access_token":"ya29.GluWBbm1vW71sU9c5sZZykHjP6BEU5f1Pi8QgmD6wF6-LqEp3r1CNm1EGDFuZXAlCWgHFU1QxMJXpkjS-nlVNt4Q3CnDSSwX5t-mK1u5GxRRHZvME_2j5JMOh89m","token_type":"Bearer","refresh_token":"1/VwUGBtwuQuuJ8Ciqt8foZj2grSQd4VutrTX0ZbeTyac","expiry_date":1523116433466}
           oAuth2Client.setCredentials(token);
           callback(oAuth2Client);
@@ -195,18 +197,20 @@ module.exports = (app) => {
         calendar.events.list({
           calendarId: 'brown.edu_1gklqf5558hsd1le5io9m7mnak@group.calendar.google.com',
           timeMin: (new Date()).toISOString(),
-          maxResults: 10,
+          maxResults: 30,
           singleEvents: true,
           orderBy: 'startTime',
+          timeZone: 'America/New_York'
         }, (err, {data}) => {
           if (err) return console.log('The API returned an error: ' + err);
           const events = data.items;
           if (events.length) {
-            console.log('Upcoming 10 events:');
+            console.log('Upcoming 30 events:');
             events_send = [];
             events_send = events.map((event, i) => {
               const start = event.start.dateTime || event.start.date;
-              return(`${start} - ${event.summary}`)
+              const end = event.end.dateTime || even.end.date;
+              return(`${start} - ${end} - ${event.summary}`)
             });
             res.send(events_send);
           } else {
