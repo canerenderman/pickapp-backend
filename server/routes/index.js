@@ -63,6 +63,7 @@ module.exports = (app) => {
             events_send = events.map((event, i) => {
               const start = event.start.dateTime || event.start.date;
               const end = event.end.dateTime || even.end.date;
+              // const location = event.location;
               return(`${start} - ${end} - ${event.summary}`)
             });
             res.send(events_send);
@@ -112,7 +113,8 @@ module.exports = (app) => {
             events_send = events.map((event, i) => {
               const start = event.start.dateTime || event.start.date;
               const end = event.end.dateTime || even.end.date;
-              return(`${start} - ${end} - ${event.summary}`)
+              const location = event.location
+              return(`${start} - ${end} - ${event.summary}- ${location}`)
             });
             res.send(events_send);
           } else {
