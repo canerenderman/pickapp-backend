@@ -11,7 +11,7 @@ module.exports = (sequelize, DataTypes) => {
     User.hasMany(models.UserInput, {
   		foreignKey: 'userId',
   		as: 'userInputs'
-  	}),
+  	})
     User.hasMany(models.FitnessSubgym, {
       foreignKey: 'userId',
       as: 'fitnessSubgyms'

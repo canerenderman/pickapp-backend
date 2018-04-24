@@ -1,4 +1,6 @@
 const FitnessSubgym = require('../models').FitnessSubgym;
+const { Op } = require('sequelize');
+var moment = require('moment');
 
 module.exports = {
   create(req, res) {
@@ -61,7 +63,28 @@ retrieve(req,res) {
     })
     .catch(error => res.status(400).send(error));
 },
-
+  retrieve1(req,res) {
+      FitnessSubgym
+          .findAndCountAll({
+              where: {
+                  userId: req.params.userId,
+                  createdAt: {
+                      [Op.gte]: moment().subtract(1.5, 'hours').toDate()
+                  }
+              },
+              limit: 0
+          })
+          .then(fitnessSubgym => {
+          if (!fitnessSubgym) {
+          return res.status(404).send({
+              message: 'FitnessSubgym Not Found',
+          });
+      }
+      console.log(fitnessSubgym.count);
+      return res.status(200).send(fitnessSubgym);
+  })
+  .catch(error => res.status(400).send(error));
+  },
 destroy(req, res) {
   return FitnessSubgym
     .find({
