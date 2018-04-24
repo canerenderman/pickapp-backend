@@ -4,6 +4,8 @@ const fitnessSubgymsController = require('../controllers').fitnessSubgyms;
 const basketballSubgymsController = require('../controllers').basketballSubgyms;
 const poolSubgymsController = require('../controllers').poolSubgyms;
 const trackSubgymsController = require('../controllers').trackSubgyms;
+const locationsController = require('../controllers').locations;
+const facilitiesController = require('../controllers').facilities;
 
 const fs = require('fs');
 const mkdirp = require('mkdirp');
@@ -22,6 +24,21 @@ module.exports = (app) => {
   app.post('/api/users', usersController.create);
   app.get('/api/users', usersController.list);
   app.get('/api/users/:userId', usersController.retrieve);
+  app.put('/api/users/:userId', usersController.update);
+  app.delete('/api/users/:userId', usersController.destroy);
+
+   app.post('/api/locations/:locationId/facility', facilitiesController.create);
+  app.get('/api/locations/:locationId/facility', facilitiesController.retrieve);
+  app.put('/api/locations/:locationId/facility/:facilityId', facilitiesController.update);
+  app.delete(
+    '/api/locations/:locationId/facility/:facilityId', facilitiesController.destroy);
+  
+
+  app.post('/api/locations', locationsController.create);
+  app.get('/api/locations', locationsController.list);
+  app.get('/api/locations/:locationId', locationsController.retrieve);
+  app.put('/api/locations/:locationId', locationsController.update);
+  app.delete('/api/locations/:locationId', locationsController.destroy);
 
   app.get('/api/calendar/pool', function(req, res){
     // Load client secrets from a local file.
@@ -222,9 +239,6 @@ module.exports = (app) => {
       }
   });
 
-  app.put('/api/users/:userId', usersController.update);
-  app.delete('/api/users/:userId', usersController.destroy);
-
   app.post('/api/users/:userId/inputs', userInputsController.create);
   app.put('/api/users/:userId/inputs/:userInputId', userInputsController.update);
   app.delete(
@@ -232,6 +246,7 @@ module.exports = (app) => {
 
   app.post('/api/users/:userId/fitness', fitnessSubgymsController.create);
   app.get('/api/users/:userId/fitness', fitnessSubgymsController.retrieve);
+  app.get('/api/users/:userId/fitness1', fitnessSubgymsController.retrieve1);
   app.put('/api/users/:userId/fitness/:fitnessId', fitnessSubgymsController.update);
   app.delete(
     '/api/users/:userId/fitness/:fitnessId', fitnessSubgymsController.destroy);
