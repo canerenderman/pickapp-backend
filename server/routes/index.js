@@ -165,7 +165,7 @@ module.exports = (app) => {
       function listEvents(auth) {
         const calendar = google.calendar({version: 'v3', auth});
         calendar.events.list({
-          calendarId: 'brown.edu_7vo0v32566duu5fr3sllg2nt1k@group.calendar.google.com',
+          calendarId: '90ik3tv8cd1ia4uja4j926m7hs@group.calendar.google.com',//'brown.edu_7vo0v32566duu5fr3sllg2nt1k@group.calendar.google.com',
           timeMin: (new Date()).toISOString(),
           maxResults: 30,
           singleEvents: true,
@@ -214,7 +214,7 @@ module.exports = (app) => {
       function listEvents(auth) {
         const calendar = google.calendar({version: 'v3', auth});
         calendar.events.list({
-          calendarId: 'brown.edu_1gklqf5558hsd1le5io9m7mnak@group.calendar.google.com',
+          calendarId: 'p0f761qkng4hepnv361dbuekmg@group.calendar.google.com',//'brown.edu_7vo0v32566duu5fr3sllg2nt1k@group.calendar.google.com',
           timeMin: (new Date()).toISOString(),
           maxResults: 30,
           singleEvents: true,
