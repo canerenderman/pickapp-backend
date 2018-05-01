@@ -131,7 +131,8 @@ module.exports = (app) => {
               const start = event.start.dateTime || event.start.date;
               const end = event.end.dateTime || even.end.date;
               const location = event.location
-              return(`${start} - ${end} - ${event.summary}- ${location}`)
+              const description = event.description
+              return(`${start} - ${end}-${event.summary}-${location}-${description}`)
             });
             res.send(events_send);
           } else {
