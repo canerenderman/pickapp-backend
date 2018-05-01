@@ -115,7 +115,7 @@ module.exports = (app) => {
       function listEvents(auth) {
         const calendar = google.calendar({version: 'v3', auth});
         calendar.events.list({
-          calendarId: 'brown.edu_jk2qbab4b5msqg5o06bsv97arg@group.calendar.google.com',
+          calendarId: 'qpn1bs5n6ce7smn3k9vg3d88vs@group.calendar.google.com',//'brown.edu_jk2qbab4b5msqg5o06bsv97arg@group.calendar.google.com',
           timeMin: (new Date()).toISOString(),
           maxResults: 30,
           singleEvents: true,
