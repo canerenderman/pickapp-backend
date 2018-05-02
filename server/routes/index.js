@@ -247,8 +247,8 @@ module.exports = (app) => {
     '/api/users/:userId/inputs/:userInputId', userInputsController.destroy);
 
   app.post('/api/users/:userId/fitness', fitnessSubgymsController.create);
-  app.get('/api/users/:userId/fitness', fitnessSubgymsController.retrieve);
-  app.get('/api/users/:userId/fitness1', fitnessSubgymsController.retrieve1);
+  app.get('/api/users/:userId/fitness1', fitnessSubgymsController.retrieve);
+  app.get('/api/users/:userId/fitness', fitnessSubgymsController.retrieve1);
   app.put('/api/users/:userId/fitness/:fitnessId', fitnessSubgymsController.update);
   app.delete(
     '/api/users/:userId/fitness/:fitnessId', fitnessSubgymsController.destroy);
