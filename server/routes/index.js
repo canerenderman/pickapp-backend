@@ -65,7 +65,7 @@ module.exports = (app) => {
       function listEvents(auth) {
         const calendar = google.calendar({version: 'v3', auth});
         calendar.events.list({
-          calendarId: 'brown.edu_rq0vojk0egcume8mkpbikruhjg@group.calendar.google.com',
+          calendarId: '4nvancjea1c3cgj6rrtqr2qpfg@group.calendar.google.com',
           timeMin: (new Date()).toISOString(),
           maxResults: 30,
           singleEvents: true,
@@ -80,8 +80,9 @@ module.exports = (app) => {
             events_send = events.map((event, i) => {
               const start = event.start.dateTime || event.start.date;
               const end = event.end.dateTime || even.end.date;
+              const description = event.description
               // const location = event.location;
-              return(`${start} - ${end} - ${event.summary}`)
+              return(`${start} - ${end}-${event.summary}-${description}`)
             });
             res.send(events_send);
           } else {
